@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="109" android:versionName="2.0" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" package="com.ichangemycity.swachhbharat" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="30"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" android:maxSdkVersion="25"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.ichangemycity.swachhbharat.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.ichangemycity.swachhbharat.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:resizeable="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <queries>
+        <package android:name="com.google.android.apps.maps"/>
+    </queries>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:name="com.ichangemycity.appdata.AppController" android:allowBackup="false" android:largeHeap="true" android:supportsRtl="true" android:fullBackupContent="false" android:usesCleartextTraffic="true" android:roundIcon="@mipmap/ic_launcher_round" android:appComponentFactory="android.support.v4.app.CoreComponentFactory">
+        <receiver android:name="com.ichangemycity.swachhbharat.CheckConnectivity" android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_android_map_api_key"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.Splashscreen" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http" android:host="swachh.city" android:pathPrefix="/complaint"/>
+                <data android:scheme="http"/>
+                <data android:host="swachh.city"/>
+                <data android:path="/complaint"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.swachhmanch.in" android:pathPrefix="/events"/>
+                <data android:scheme="https"/>
+                <data android:host="www.swachhmanch.in"/>
+                <data android:path="/events"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.webservice.GenericWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/Base.Theme.AppCompat" android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.SelectLanguage" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.MainActivity" android:exported="true" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.ViewAllMediaActivity" android:exported="true" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.LocationSearchAutoCompleteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysVisible"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.OTPVerification" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.MobileNumber" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.LocationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.LocationSearchPublicToiletActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.PublicToiletListingActivity" android:launchMode="singleTask" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.ProfileHeaderOwnOrganization" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.HowTo" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.PACAddLocationLandmarkDescription" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.ThankYouScreen" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.AndroidCustomGalleryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.CreatePostForOwnOrganization" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.VolunteerAnEventActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.VolunteerAnEventThankyouActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.AttendeesListingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.SelectImageDialogActivity" android:configChanges="orientation" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.SelectCategory" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.ComplaintDetailNew" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.VoteupsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.CommentsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.ChangeStatusActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.EditComplaint" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.UpdateProfile" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.Feedback" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.ichangemycity.swachhbharat.SearchComplaintsActivity" android:screenOrientation="portrait" android:configChanges="locale" android:windowSoftInputMode="stateVisible"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.ichangemycity.swachhbharat.ComplaintsListActivity" android:screenOrientation="portrait" android:configChanges="locale" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.ichangemycity.swachhbharat.SetEmailPasswordActivity" android:screenOrientation="portrait" android:configChanges="locale" android:windowSoftInputMode="adjustResize|stateAlwaysVisible"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.SurveyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.CreateEventActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.CreateEventSelectDateAndTime" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.CreateEventThankyouActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.EventsListingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.CreateEventCategoryAlertActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.EventDetail" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.PublicToiletFeedbackListingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.Profile" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.ProfileNameLocation" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.ProfileChangePassword" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.EditEvent" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.organization.AddEmployeeForOwnOrganization" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.organization.EditOrganizationDetails" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.organization.AddOrganizationDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.organization.AddOrganizationUpdateAvatarCover" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:label="" android:name="com.ichangemycity.swachhbharat.ProfileEmailPasswordMobileNumber" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.ProfileHeader" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.AddStackholderDetails" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysVisible"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.swachhbharat.EditStackholderDetails" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.organization.ProfileOwnOrganizationFollowersList" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.organization.ProfileOwnOrganizationEmployeeList" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.organization.CreateOrganizationSearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@style/AppTheme_NoActionBar" android:name="com.ichangemycity.organization.OrganizationSearchAutoCompleteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <service android:name="com.ichangemycity.firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ichangemycity.firebase.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_launcher"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/colorAccent"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/app_name"/>
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.ichangemycity.swachhbharat.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="org.acra.sender.SenderService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" android:process=":acra"/>
+        <provider android:name="org.acra.attachment.AcraContentProvider" android:exported="false" android:process=":acra" android:authorities="com.ichangemycity.swachhbharat.acra" android:grantUriPermissions="true"/>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+        <receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.ichangemycity.swachhbharat.firebaseinitprovider" android:initOrder="100"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="6"/>
+    </application>
+</manifest>
